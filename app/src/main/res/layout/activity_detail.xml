@@ -1,59 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.udacity.sandwichclub.DetailActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image_iv"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rootDetailLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/sandwich_picture_content_description"
-        android:scaleType="centerCrop" />
-
-    <TextView
-        android:id="@+id/origin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/detail_also_known_as_label"
-        android:textStyle="bold" />
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:context="com.udacity.sandwichclub.DetailActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_ingredients_label"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/sandwich_picture"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/sandwich_picture_content_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_place_of_origin_label"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/also_known_as_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/detail_also_known_as_label"
+            app:layout_constraintTop_toBottomOf="@id/sandwich_picture"/>
 
-    <TextView
-        android:id="@+id/description_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/also_known_as"
+            style="@style/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/also_known_as_title"
+            tools:text="Clubhouse sandwich"/>
 
-    <TextView
-        android:id="@+id/ingredients_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/origin_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/detail_place_of_origin_label"
+            app:layout_constraintTop_toBottomOf="@id/also_known_as"/>
 
-    <TextView
-        android:id="@+id/also_known_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/origin"
+            style="@style/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/origin_title"
+            tools:text="United States"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_description_label"
-        android:textStyle="bold" />
-</FrameLayout>
+        <TextView
+            android:id="@+id/description_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/detail_description_label"
+            app:layout_constraintTop_toBottomOf="@id/origin"/>
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/description_title"
+            tools:text="A club sandwich, also called a clubhouse sandwich, is a sandwich of bread (occasionally toasted), sliced cooked poultry, fried bacon, lettuce, tomato, and mayonnaise. It is often cut into quarters or halves and held together by cocktail sticks. Modern versions frequently have two layers which are separated by an additional slice of bread."/>
+
+        <TextView
+            android:id="@+id/ingredients_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/detail_ingredients_label"
+            app:layout_constraintTop_toBottomOf="@id/description"/>
+
+        <TextView
+            android:id="@+id/ingredients"
+            style="@style/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ingredients_title"
+            tools:text="Toasted bread, Turkey or chicken, Bacon, Lettuce, Tomato, Mayonnaise"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
