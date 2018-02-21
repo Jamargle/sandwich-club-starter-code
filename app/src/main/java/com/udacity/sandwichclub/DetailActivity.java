@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
+import com.udacity.sandwichclub.utils.StringUtil;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -67,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
             alsoKnownAsTitle.setVisibility(View.VISIBLE);
             final TextView alsoKnownAs = findViewById(R.id.also_known_as);
             alsoKnownAs.setVisibility(View.VISIBLE);
-            alsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
+            alsoKnownAs.setText(StringUtil.toStringSeparatedByCommas(sandwich.getAlsoKnownAs()));
         }
 
         if (sandwich.getPlaceOfOrigin() != null && !sandwich.getPlaceOfOrigin().isEmpty()) {
@@ -91,7 +92,7 @@ public class DetailActivity extends AppCompatActivity {
             ingredientsTitle.setVisibility(View.VISIBLE);
             final TextView ingredients = findViewById(R.id.ingredients);
             ingredients.setVisibility(View.VISIBLE);
-            ingredients.setText(sandwich.getIngredients().toString());
+            ingredients.setText(StringUtil.toStringSeparatedByCommas(sandwich.getIngredients()));
         }
     }
 }
