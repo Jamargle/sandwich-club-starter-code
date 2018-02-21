@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/detail_also_known_as_label"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/sandwich_picture"/>
 
         <TextView
@@ -38,6 +39,7 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/also_known_as_title"
             tools:text="Clubhouse sandwich"/>
 
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/detail_place_of_origin_label"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/also_known_as"/>
 
         <TextView
@@ -55,6 +58,7 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/origin_title"
             tools:text="United States"/>
 
@@ -65,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/detail_description_label"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/origin"/>
 
         <TextView
@@ -72,6 +77,7 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/description_title"
             tools:text="A club sandwich, also called a clubhouse sandwich, is a sandwich of bread (occasionally toasted), sliced cooked poultry, fried bacon, lettuce, tomato, and mayonnaise. It is often cut into quarters or halves and held together by cocktail sticks. Modern versions frequently have two layers which are separated by an additional slice of bread."/>
 
@@ -82,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/detail_ingredients_label"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/description"/>
 
         <TextView
@@ -89,6 +96,7 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/ingredients_title"
             tools:text="Toasted bread, Turkey or chicken, Bacon, Lettuce, Tomato, Mayonnaise"/>
 
