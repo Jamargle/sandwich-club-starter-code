@@ -13,17 +13,29 @@ import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 import com.udacity.sandwichclub.utils.StringUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
+    @BindView(R.id.also_known_as_title) TextView alsoKnownAsTitle;
+    @BindView(R.id.also_known_as) TextView alsoKnownAs;
+    @BindView(R.id.origin_title) TextView originTitle;
+    @BindView(R.id.origin) TextView origin;
+    @BindView(R.id.description_title) TextView descriptionTitle;
+    @BindView(R.id.description) TextView description;
+    @BindView(R.id.ingredients_title) TextView ingredientsTitle;
+    @BindView(R.id.ingredients) TextView ingredients;
+    @BindView(R.id.sandwich_picture) ImageView ingredientsIv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        ImageView ingredientsIv = findViewById(R.id.sandwich_picture);
+        ButterKnife.bind(this);
 
         final Intent intent = getIntent();
         if (intent == null) {
@@ -63,33 +75,25 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(final Sandwich sandwich) {
         if (sandwich.getAlsoKnownAs() != null && sandwich.getAlsoKnownAs().size() > 0) {
-            final TextView alsoKnownAsTitle = findViewById(R.id.also_known_as_title);
             alsoKnownAsTitle.setVisibility(View.VISIBLE);
-            final TextView alsoKnownAs = findViewById(R.id.also_known_as);
             alsoKnownAs.setVisibility(View.VISIBLE);
             alsoKnownAs.setText(StringUtil.toStringSeparatedByCommas(sandwich.getAlsoKnownAs()));
         }
 
         if (sandwich.getPlaceOfOrigin() != null && !sandwich.getPlaceOfOrigin().isEmpty()) {
-            final TextView originTitle = findViewById(R.id.origin_title);
             originTitle.setVisibility(View.VISIBLE);
-            final TextView origin = findViewById(R.id.origin);
             origin.setVisibility(View.VISIBLE);
             origin.setText(sandwich.getPlaceOfOrigin());
         }
 
         if (sandwich.getDescription() != null && !sandwich.getDescription().isEmpty()) {
-            final TextView descriptionTitle = findViewById(R.id.description_title);
             descriptionTitle.setVisibility(View.VISIBLE);
-            final TextView description = findViewById(R.id.description);
             description.setVisibility(View.VISIBLE);
             description.setText(sandwich.getDescription());
         }
 
         if (sandwich.getIngredients() != null && sandwich.getIngredients().size() > 0) {
-            final TextView ingredientsTitle = findViewById(R.id.ingredients_title);
             ingredientsTitle.setVisibility(View.VISIBLE);
-            final TextView ingredients = findViewById(R.id.ingredients);
             ingredients.setVisibility(View.VISIBLE);
             ingredients.setText(StringUtil.toStringSeparatedByCommas(sandwich.getIngredients()));
         }
