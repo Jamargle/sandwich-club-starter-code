@@ -25,7 +25,7 @@ public class DetailActivity extends AppCompatActivity {
 
         ImageView ingredientsIv = findViewById(R.id.sandwich_picture);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         if (intent == null) {
             closeOnError();
         }
@@ -40,9 +40,8 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
-        String json = sandwiches[position];
-        Sandwich sandwich = JsonUtils.parseSandwichJson(json);
+        final String[] jsonSandwiches = getResources().getStringArray(R.array.sandwich_details);
+        final Sandwich sandwich = JsonUtils.parseSandwichJson(jsonSandwiches[position]);
         if (sandwich == null) {
             // Sandwich data unavailable
             closeOnError();
@@ -95,4 +94,5 @@ public class DetailActivity extends AppCompatActivity {
             ingredients.setText(StringUtil.toStringSeparatedByCommas(sandwich.getIngredients()));
         }
     }
+    
 }
