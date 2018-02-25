@@ -27,32 +27,23 @@ public final class JsonUtils {
             final Sandwich sandwich = new Sandwich();
             if (jsonSandwich.has(KEY_NAME)) {
                 final JSONObject name = jsonSandwich.getJSONObject(KEY_NAME);
-                if (name.has(KEY_MAIN_NAME)) {
-                    sandwich.setMainName(name.getString(KEY_MAIN_NAME));
+                sandwich.setMainName(name.optString(KEY_MAIN_NAME));
+
+                final JSONArray alsoKnownJson = name.optJSONArray(KEY_ALSO_KNOWN_AS);
+                final List<String> alsoKnownList = new ArrayList<>(alsoKnownJson.length());
+                for (int i = 0; i < alsoKnownJson.length(); i++) {
+                    alsoKnownList.add(alsoKnownJson.optString(i));
                 }
-                if (name.has(KEY_ALSO_KNOWN_AS)) {
-                    final JSONArray alsoKnownJson = name.getJSONArray(KEY_ALSO_KNOWN_AS);
-                    final List<String> alsoKnownList = new ArrayList<>(alsoKnownJson.length());
-                    for (int i = 0; i < alsoKnownJson.length(); i++) {
-                        alsoKnownList.add(alsoKnownJson.getString(i));
-                    }
-                    sandwich.setAlsoKnownAs(alsoKnownList);
-                }
+                sandwich.setAlsoKnownAs(alsoKnownList);
             }
-            if (jsonSandwich.has(KEY_ORIGIN)) {
-                sandwich.setPlaceOfOrigin(jsonSandwich.getString(KEY_ORIGIN));
-            }
-            if (jsonSandwich.has(KEY_DESCRIPTION)) {
-                sandwich.setDescription(jsonSandwich.getString(KEY_DESCRIPTION));
-            }
-            if (jsonSandwich.has(KEY_IMAGE)) {
-                sandwich.setImage(jsonSandwich.getString(KEY_IMAGE));
-            }
+            sandwich.setPlaceOfOrigin(jsonSandwich.optString(KEY_ORIGIN));
+            sandwich.setDescription(jsonSandwich.optString(KEY_DESCRIPTION));
+            sandwich.setImage(jsonSandwich.optString(KEY_IMAGE));
             if (jsonSandwich.has(KEY_INGREDIENTS)) {
                 final JSONArray ingredientsJson = jsonSandwich.getJSONArray(KEY_INGREDIENTS);
                 final List<String> ingredientList = new ArrayList<>(ingredientsJson.length());
                 for (int i = 0; i < ingredientsJson.length(); i++) {
-                    ingredientList.add(ingredientsJson.getString(i));
+                    ingredientList.add(ingredientsJson.optString(i));
                 }
                 sandwich.setIngredients(ingredientList);
             }
