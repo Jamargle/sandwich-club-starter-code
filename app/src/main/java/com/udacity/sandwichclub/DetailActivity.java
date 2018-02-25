@@ -63,6 +63,8 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.ic_placeholder).fit()
+                .error(R.drawable.error_placeholder_image)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
@@ -98,5 +100,5 @@ public class DetailActivity extends AppCompatActivity {
             ingredients.setText(StringUtil.toStringSeparatedByCommas(sandwich.getIngredients()));
         }
     }
-    
+
 }
